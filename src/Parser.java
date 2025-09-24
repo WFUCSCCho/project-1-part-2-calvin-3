@@ -5,6 +5,8 @@
   @date: September 23, 2025
 ∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗*/
 
+import org.w3c.dom.CDATASection;
+
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
@@ -129,6 +131,27 @@ public class Parser {
                 mybst.add(rec);
                 writeToFile("INSERT: " + rec, "./result.txt");
             }
+
+            case "search" -> {
+                if (command.length != 2) {
+                    writeToFile("Usage: SEARCH <player_slug>", "./result.txt");
+                    break;
+                }
+                String slug = command[1];
+                FIFARecord target = allPlayers.get(slug);
+
+                if (target == null) {
+                    writeToFile("No player found with slug: " + slug, "./result.txt");
+                } else {
+                    Node<FIFARecord> node = mybst.search(target);
+                    if (node != null) {
+                        writeToFile("FOUND: " + node.getValue(), "./result.txt");
+                    } else {
+                        writeToFile("NOT FOUND in BST: " + slug, "./result.txt");
+                    }
+                }
+            }
+
 
             //prints in-order
             case "print" -> {

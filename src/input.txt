@@ -1,6 +1,7 @@
 insert rodrigo-hernandez-cascante
 insert mohamed-salah
 insert kylian-mbappe
+search kylian-mbappe
 print
 remove mohamed-salah
 print
