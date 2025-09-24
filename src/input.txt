@@ -1,0 +1,9 @@
+insert rodrigo-hernandez-cascante
+insert mohamed-salah
+insert kylian-mbappe
+print
+remove mohamed-salah
+print
+size
+clear
+print

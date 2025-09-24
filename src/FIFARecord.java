@@ -1,4 +1,9 @@
-
+/*∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗*
+  @file: FIFARecord.java
+  @description: This file stores and organizes objects of my dataset
+  @author: Calvin Malaney
+  @date: September 23, 2025
+∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗∗*/
 import java.util.Objects;
 
 public class FIFARecord implements Comparable<FIFARecord> {
@@ -21,6 +26,26 @@ public class FIFARecord implements Comparable<FIFARecord> {
         this.potential = potential;
     }
 
+    // default constructor
+    public FIFARecord() {
+        this.playerSlug = null;
+        this.name = null;
+        this.bestPosition = null;
+        this.fullName = null;
+        this.overallRating = 0;
+        this.potential = 0;
+    }
+
+    // copy constructor
+    public FIFARecord(FIFARecord copy) {
+        this.playerSlug = copy.playerSlug;
+        this.name = copy.name;
+        this.fullName = copy.fullName;
+        this.bestPosition = copy.bestPosition;
+        this.overallRating = copy.overallRating;
+        this.potential = copy.potential;
+    }
+
     // toString method - to show key info and the players overall rating
     @Override
     public String toString() {
@@ -40,7 +65,7 @@ public class FIFARecord implements Comparable<FIFARecord> {
         return Objects.equals(this.playerSlug, other.playerSlug);
     }
 
-    // compareTo methods
+    // compareTo method
     @Override
     public int compareTo(FIFARecord o) {
         // Order by overall_Rating DESC (better players first)
@@ -54,8 +79,6 @@ public class FIFARecord implements Comparable<FIFARecord> {
 
         return this.playerSlug.compareToIgnoreCase(o.playerSlug);
     }
-
-    //public int hashCode() { return Objects.hash(playerSlug, version); }
 
     // getters
     public int getOverallRating() {
