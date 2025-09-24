@@ -1,25 +1,10 @@
-
-insert 111
-             insert 23
-
-insert 99
-insert         4
-
-isEmpty
-
-    insert     111
-
+insert rodrigo-hernandez-cascante
+insert mohamed-salah
+insert kylian-mbappe
+search kylian-mbappe
 print
-
-
-search 9
-
-remove 23
-
-remove 4
-remove 999999
-isEmptyasfh
+remove mohamed-salah
 print
-
-insert 123
+size
+clear
 print
